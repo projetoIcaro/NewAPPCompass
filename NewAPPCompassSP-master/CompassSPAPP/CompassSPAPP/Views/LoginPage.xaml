@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:CompassSPAPP.VIewModel"
+             x:Class="CompassSPAPP.Views.LoginPage">
+
+    <ContentPage.BindingContext>
+        <vm:LoginViewModel></vm:LoginViewModel>
+    </ContentPage.BindingContext>
+    
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry Placeholder="Usuário"
+                   x:Name="EntryUsuario" 
+                   Text="{Binding Usuario.Login, Mode=TwoWay}"/>
+            
+            <Entry Placeholder="Senha" 
+                   x:Name="EntrySenha" 
+                   Text="{Binding Usuario.Senha, Mode=TwoWay}" IsPassword="True"/>
+            
+            <Button Text="Entrar" 
+                    Command="{Binding LoginClickedCommand}"/>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

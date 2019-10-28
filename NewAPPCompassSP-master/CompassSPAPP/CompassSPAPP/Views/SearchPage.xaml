@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:CompassSPAPP.VIewModel"
+             x:Class="CompassSPAPP.Views.SearchPage">
+
+
+    <ContentPage.BindingContext>
+        <vm:SearchViewModel></vm:SearchViewModel>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry Placeholder="CPF"
+                   x:Name="EntryCPF" 
+                   Text="{Binding Search.CPF, Mode=TwoWay}"/>
+
+            <Button Text="Entrar" 
+                    Command="{Binding SearchClickedCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
