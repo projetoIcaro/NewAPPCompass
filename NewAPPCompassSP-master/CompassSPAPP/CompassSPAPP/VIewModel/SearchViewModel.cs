@@ -1,4 +1,5 @@
 ﻿using CompassSPAPP.Model;
+using CompassSPAPP.Layers.Business;
 using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -16,10 +17,18 @@ namespace CompassSPAPP.VIewModel
 
         public SearchViewModel()
         {
+            Search = new Search();
             Search.CPF = "39164301818";
 
             SearchClickedCommand = new Command(() =>
             {
+                var jsonResult = new ResultBusiness().doSearchByCPF(Search.CPF);
+                var result = new Result();
+                result.JsonResult = jsonResult;
+                new ResultBusiness().SaveActualResult(result);
+
+                App.LoadGlobalVariables();
+
                 MessagingCenter.Send<SearchViewModel>(this, "RealizaPesquisa");
             });
         }

@@ -13,9 +13,7 @@ namespace CompassSPAPP.VIewModel
 
         public ResultViewModel()
         {
-            Result.JsonResult = "Teste: {" +
-                "batata : 1" +
-                "}";
+            Result = Global.result;
         }
     }
 }

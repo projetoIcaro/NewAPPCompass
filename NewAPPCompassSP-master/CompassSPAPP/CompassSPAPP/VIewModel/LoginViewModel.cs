@@ -7,9 +7,8 @@ using Xamarin.Forms;
 
 namespace CompassSPAPP.VIewModel
 {
-    public class LoginViewModel
-    {
-        public ICommand LoginClickedCommand { get; private set; }
+    public class LoginViewModel {
+        public ICommand LoginClickedCommand { get; set; }
 
         public Usuario Usuario { get; set; }
 
@@ -23,7 +22,8 @@ namespace CompassSPAPP.VIewModel
                 try
                 {
                     //Efetuando Login
-                    MessagingCenter.Send<LoginViewModel>(this, "LoginSucesso");
+
+                    MessagingCenter.Send<String>("", "LoginSucesso");
                 }
                 catch(Exception ex)
                 {

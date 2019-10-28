@@ -1,5 +1,7 @@
 ﻿using CompassSPAPP.VIewModel;
 using CompassSPAPP.Views;
+using CompassSPAPP.Model;
+using CompassSPAPP.Layers.Business;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -13,12 +15,15 @@ namespace CompassSPAPP
         {
             InitializeComponent();
 
-            MainPage = new CompassSPAPP.Views.LoginPage();
+            // Método Interno que carrega variáveis (Objetos) Globais
+            LoadGlobalVariables();
+
+            MainPage = new LoginPage();
         }
 
         protected override void OnStart()
         {
-            MessagingCenter.Subscribe<LoginViewModel>(this, "LoginSucesso",
+            MessagingCenter.Subscribe<String>("", "LoginSucesso",
                 (sender) =>
                 {
                     MainPage = new SearchPage();
@@ -29,6 +34,12 @@ namespace CompassSPAPP
                 {
                     MainPage = new ResultPage();
                 });
+        }
+
+        internal static void LoadGlobalVariables()
+        {
+            // Carregando a lista de Perfil para acesso Global
+            Model.Global.result = new ResultBusiness().getActualResult();
         }
 
         protected override void OnSleep()

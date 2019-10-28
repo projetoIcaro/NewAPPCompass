@@ -4,7 +4,6 @@
              xmlns:vm="clr-namespace:CompassSPAPP.VIewModel"
              x:Class="CompassSPAPP.Views.SearchPage">
 
-
     <ContentPage.BindingContext>
         <vm:SearchViewModel></vm:SearchViewModel>
     </ContentPage.BindingContext>
